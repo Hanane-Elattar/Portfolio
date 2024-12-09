@@ -62,7 +62,7 @@ const SliderComponent = ({ title, skills }) => {
       {lines.map((lineStyle, index) => (
         <div
           key={index}
-          className="absolute bg-yellow-500"
+          className="absolute bg-purple-500"
           style={lineStyle}
         />
       ))}
@@ -77,41 +77,32 @@ const SliderComponent = ({ title, skills }) => {
       </motion.h3>
 
       {/* Slider Section */}
-      <div className="flex justify-center overflow-hidden relative">
-        <motion.div
-          className="flex transition-transform duration-1000 ease-in-out"
-          style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-        >
-          {skills.map((skill, index) => (
-            <motion.div
-              key={index}
-              className="flex-shrink-0 flex flex-col items-center justify-center w-full p-4"
-              whileHover={{ scale: 1.1, rotate: 5 }}
-              transition={{ duration: 0.3 }}
-            >
-              <div className="bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer">
-                <img
-                  src={skill.img}
-                  alt={skill.name}
-                  className="w-32 h-32 rounded-lg object-contain transition-transform duration-300"
-                />
-              </div>
-              <p className="mt-4 text-xl font-semibold text-center font-poppins">
-                {skill.name}
-              </p>
-            </motion.div>
-          ))}
-        </motion.div>
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
+        {skills.map((skill, index) => (
+          <motion.div
+            key={index}
+            className="flex flex-col items-center justify-center bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
+            whileHover={{ scale: 1.1, rotate: 5 }}
+            transition={{ duration: 0.3 }}
+          >
+            <img
+              src={skill.img}
+              alt={skill.name}
+              className="w-32 h-32 rounded-lg object-contain transition-transform duration-300"
+            />
+            <p className="mt-4 text-xl font-semibold text-center font-poppins">
+              {skill.name}
+            </p>
+          </motion.div>
+        ))}
       </div>
+
 
       {/* Dots for navigation */}
       <div className="flex justify-center mt-10 space-x-2">
         {skills.map((_, index) => (
           <button
             key={index}
-            className={`w-3 h-3 rounded-full ${
-              index === currentIndex ? "bg-yellow-400" : "bg-gray-600"
-            }`}
             onClick={() => setCurrentIndex(index)}
           ></button>
         ))}
@@ -132,7 +123,7 @@ const Slider = () => {
     { name: "Laravel", img: "https://logospng.org/download/laravel/logo-laravel-icon-1024.png" },
     { name: "MySQL", img: "https://www.vhv.rs/dpng/f/543-5438423_mysql-png.png" },
     { name: "MongoDB", img: "https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png" },
-    { name: "Python", img: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png" },
+    // { name: "Python", img: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png" },
   ];
 
   const devopsSkills = [
@@ -154,7 +145,7 @@ const Slider = () => {
   ];
 
   return (
-    <div className="relative isolate px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-yellow-500 min-h-screen flex flex-col items-center">
+    <div className="relative isolate px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center">
       <motion.h2
         className="text-4xl font-bold text-center mb-12 font-poppins"
         initial={{ opacity: 0, y: 50 }}

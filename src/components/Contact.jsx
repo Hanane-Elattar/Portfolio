@@ -40,12 +40,12 @@ function Contact() {
   const lines = Array.from({ length: 15 }).map(() => generateRandomLineStyles());
 
   return (
-    <section id="contactez-moi" className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-yellow-500 min-h-screen flex flex-col items-center">
+    <section id="contactez-moi" className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center justify-center">
       {/* Render random lines */}
       {lines.map((line, index) => (
         <motion.div
           key={index}
-          className="absolute bg-yellow-500"
+          className="absolute bg-purple-500"
           style={line}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, transition: { duration: 2, repeat: Infinity, repeatType: "reverse" } }}
@@ -53,7 +53,7 @@ function Contact() {
       ))}
 
       <motion.h2
-        className="text-4xl font-bold text-center mb-12 mt-20"
+        className="text-4xl font-bold text-center mb-12 mt-20 text-white"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
       >
@@ -70,7 +70,7 @@ function Contact() {
         onSubmit={handleSubmit}
       >
         {({ touched, errors }) => (
-          <Form className="w-full max-w-lg space-y-8 p-6">
+          <Form className="w-full max-w-lg space-y-8 p-6 bg-gray-900 bg-opacity-60 rounded-lg shadow-lg">
             {/* Nom */}
             <motion.div
               className="flex flex-col"
@@ -78,11 +78,11 @@ function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <label htmlFor="name" className="text-lg">Nom</label>
+              <label htmlFor="name" className="text-lg text-white">Nom</label>
               <Field
                 id="name"
                 name="name"
-                className="mt-2 p-3 rounded-md bg-gray-700 text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="mt-2 p-3 rounded-md bg-gray-700 text-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Votre nom"
               />
               <ErrorMessage name="name" component="div" className="text-red-500 text-sm mt-1" />
@@ -95,12 +95,12 @@ function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <label htmlFor="email" className="text-lg">Email</label>
+              <label htmlFor="email" className="text-lg text-white">Email</label>
               <Field
                 id="email"
                 name="email"
                 type="email"
-                className="mt-2 p-3 rounded-md bg-gray-700 text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="mt-2 p-3 rounded-md bg-gray-700 text-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Votre email"
               />
               <ErrorMessage name="email" component="div" className="text-red-500 text-sm mt-1" />
@@ -113,12 +113,12 @@ function Contact() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <label htmlFor="message" className="text-lg">Message</label>
+              <label htmlFor="message" className="text-lg text-white">Message</label>
               <Field
                 as="textarea"
                 id="message"
                 name="message"
-                className="mt-2 p-3 rounded-md bg-gray-700 text-yellow-500 focus:outline-none focus:ring-2 focus:ring-yellow-500"
+                className="mt-2 p-3 rounded-md bg-gray-700 text-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500"
                 placeholder="Votre message"
                 rows="4"
               />
@@ -128,7 +128,7 @@ function Contact() {
             {/* Submit Button */}
             <motion.button
               type="submit"
-              className="flex justify-center text-center items-center w-full mt-6 bg-yellow-500 text-gray-800 font-semibold py-3 rounded-md hover:bg-yellow-400 transition-all duration-300"
+              className="flex justify-center text-center items-center w-full mt-6 bg-purple-500 text-white font-semibold py-3 rounded-md hover:bg-purple-400 transition-all duration-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}

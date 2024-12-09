@@ -29,7 +29,7 @@ function Footer() {
   return (
     <section
       id="footer"
-      className="relative font-poppins px-6 py-10 lg:px-12 bg-gradient-to-r from-gray-900 to-gray-800 text-yellow-500 flex flex-col items-center"
+      className="relative font-poppins px-6 py-10 lg:px-12 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 flex flex-col items-center"
     >
       {/* Background gradient and lines */}
       <div
@@ -41,7 +41,7 @@ function Footer() {
             clipPath:
               "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
           }}
-          className="relative left-1/2 aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-yellow-500 to-gray-800 opacity-30 sm:w-[72.1875rem]"
+          className="relative left-1/2 aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-purple-500 to-gray-800 opacity-30 sm:w-[72.1875rem]"
         />
       </div>
 
@@ -49,7 +49,7 @@ function Footer() {
       {lines.map((lineStyle, index) => (
         <div
           key={index}
-          className="absolute bg-yellow-500"
+          className="absolute bg-purple-500"
           style={lineStyle}
         />
       ))}
@@ -84,29 +84,29 @@ function Footer() {
         transition={{ duration: 1 }}
       >
         <div className="flex items-start gap-4">
-          <FaEnvelope className="text-yellow-500 text-lg" />
+          <FaEnvelope className="text-purple-500 text-lg" />
           <p>
             <a
               href="mailto:hananeelattar405@gmail.com"
-              className="hover:underline hover:text-yellow-400 transition"
+              className="hover:underline hover:text-purple-400 transition"
             >
               hananeelattar405@gmail.com
             </a>
           </p>
         </div>
         <div className="flex items-start gap-4">
-          <FaPhoneAlt className="text-yellow-500 text-lg" />
+          <FaPhoneAlt className="text-purple-500 text-lg" />
           <p>
             <a
               href="tel:+212657035715"
-              className="hover:underline hover:text-yellow-400 transition"
+              className="hover:underline hover:text-purple-400 transition"
             >
               +212 6 57 03 57 15
             </a>
           </p>
         </div>
         <div className="flex items-start gap-4">
-          <FaMapMarkerAlt className="text-yellow-500 text-lg" />
+          <FaMapMarkerAlt className="text-purple-500 text-lg" />
           <p>Casablanca, Maroc</p>
         </div>
       </motion.div>
@@ -123,7 +123,7 @@ function Footer() {
           href="https://www.linkedin.com/in/hanane-el-attar-95b343304/"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-gray-300 hover:text-yellow-400 transition text-sm"
+          className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition text-sm"
         >
           <FaLinkedin className="text-lg" />
           LinkedIn
@@ -132,7 +132,7 @@ function Footer() {
           href="https://github.com/Hanane-Elattar"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-2 text-gray-300 hover:text-yellow-400 transition text-sm"
+          className="flex items-center gap-2 text-gray-300 hover:text-purple-400 transition text-sm"
         >
           <FaGithub className="text-lg" />
           GitHub
@@ -149,21 +149,21 @@ function Footer() {
       >
         <a
           href="#accueil"
-          className="text-gray-300 hover:text-yellow-400 transition flex items-center gap-2"
+          className="text-gray-300 hover:text-purple-400 transition flex items-center gap-2"
         >
           <FiHome className="text-lg" />
           Accueil
         </a>
         <a
           href="#projets"
-          className="text-gray-300 hover:text-yellow-400 transition flex items-center gap-2"
+          className="text-gray-300 hover:text-purple-400 transition flex items-center gap-2"
         >
           <FiFile className="text-lg" />
           Projets
         </a>
         <a
           href="#contactez-moi"
-          className="text-gray-300 hover:text-yellow-400 transition flex items-center gap-2"
+          className="text-gray-300 hover:text-purple-400 transition flex items-center gap-2"
         >
           <FiPhone className="text-lg" />
           Contactez-moi

@@ -30,7 +30,7 @@ function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`shadow-md p-4 bg-transparent text-yellow-500 fixed top-0 left-0 right-0 z-50 ${scrolled ? 'backdrop-blur-sm' : ''}`}
+        className={`shadow-md p-4 bg-transparent text-purple-500 fixed top-0 left-0 right-0 z-50 ${scrolled ? 'backdrop-blur-sm' : ''}`}
       >
         <div className="container mx-auto flex justify-between items-center">
           {/* Image de profil à gauche */}
@@ -49,7 +49,7 @@ function Navbar() {
 
           {/* Menu hamburger pour mobile */}
           <button
-            className="md:hidden text-yellow-500 focus:outline-none"
+            className="md:hidden text-purple-500 focus:outline-none"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -61,15 +61,15 @@ function Navbar() {
 
           {/* Liens de navigation pour desktop */}
           <div className="hidden md:flex md:items-center md:justify-end md:space-x-10 font-poppins">
-            {["accueil", "projets", "contactez-moi"].map((link, index) => (
+            {["Accueil", "Projets", "Contactez-moi"].map((link, index) => (
               <a
                 key={index}
                 href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                className="relative block text-lg text-yellow-400 transition group"
+                className="relative block text-lg text-purple-400 transition group"
               >
                 {link}
                 {/* Effet visuel du lien */}
-                <span className="absolute left-0 bottom-0 h-[3px] w-0 bg-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 bottom-0 h-[3px] w-0 bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -85,12 +85,12 @@ function Navbar() {
             isOpen ? "block" : "hidden"
           }`}
         >
-          <div className="text-center text-yellow-500 space-y-6">
+          <div className="text-center text-purple-500 space-y-6">
             {["accueil", "projets", "contactez-moi"].map((link, index) => (
               <a
                 key={index}
                 href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                className="block text-2xl font-bold transition-all duration-300 hover:text-yellow-400"
+                className="block text-2xl font-bold transition-all duration-300 hover:text-purple-400"
                 onClick={() => setIsOpen(false)} // Ferme le menu lors du clic sur un lien
               >
                 {link}

@@ -4,22 +4,22 @@ import { FaSchool, FaUniversity, FaLaptopCode } from "react-icons/fa";
 
 const timeline = [
   {
-    year: "2021-2022",
-    title: "Baccalauréat Physique-Chimie",
-    description: "Mention A.Bien",
-    icon: <FaSchool className="text-yellow-500 text-3xl" />,
+    year: "2023-Présent",
+    title: "CPF Hassania Casablanca",
+    description: "Développement Digital (Fullstack)",
+    icon: <FaLaptopCode className="text-purple-500 text-3xl" />,
   },
   {
     year: "2022-2023",
     title: "Faculté Des Science Ben M'sik",
     description: "Département Physique",
-    icon: <FaUniversity className="text-yellow-500 text-3xl" />,
+    icon: <FaUniversity className="text-purple-500 text-3xl" />,
   },
   {
-    year: "2023-Présent",
-    title: "CPF Hassania Casablanca",
-    description: "Développement Digital (Fullstack)",
-    icon: <FaLaptopCode className="text-yellow-500 text-3xl" />,
+    year: "2021-2022",
+    title: "Baccalauréat Physique-Chimie",
+    description: "Mention A.Bien",
+    icon: <FaSchool className="text-purple-500 text-3xl" />,
   },
 ];
 
@@ -42,12 +42,12 @@ function About() {
   const lines = Array.from({ length: 15 }).map(() => generateRandomLineStyles());
 
   return (
-    <section className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-yellow-500 min-h-screen flex flex-col items-center overflow-x-hidden">
+    <section className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center overflow-x-hidden">
       
       {lines.map((lineStyle, index) => (
         <div
           key={index}
-          className="absolute bg-yellow-500"
+          className="absolute bg-purple-500"
           style={lineStyle}
         />
       ))}
@@ -63,7 +63,7 @@ function About() {
       {/* Timeline Section */}
       <div className="relative w-full max-w-4xl mx-auto overflow-hidden">
         {/* Barre verticale */}
-        <div className="absolute left-1/2 transform -translate-x-1/2 w-px bg-yellow-500 h-full hidden md:block"></div>
+        <div className="absolute left-1/2 transform -translate-x-1/2 w-px bg-purple-500 h-full hidden md:block"></div>
 
         {/* Éléments de la timeline */}
         <div className="space-y-16">
@@ -80,7 +80,7 @@ function About() {
               }`}
             >
               {/* Icône */}
-              <div className="bg-gray-900 p-3 rounded-full border-4 border-yellow-500 z-10">
+              <div className="bg-gray-900 p-3 rounded-full border-4 border-purple-500 z-10">
                 {item.icon}
               </div>
 

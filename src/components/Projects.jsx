@@ -26,9 +26,7 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
 
   return (
     <motion.div
-      className={`rounded-lg shadow-md overflow-hidden transition-transform transform ${
-        isLiveLinkAvailable ? "hover:scale-105" : "opacity-70"
-      }`}
+      className={`rounded-lg shadow-xl overflow-hidden transition-transform transform ${isLiveLinkAvailable ? "hover:scale-105" : "opacity-70"}`}
       initial={{ opacity: 0, y: 100 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -49,14 +47,12 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
           <img
             src={image}
             alt={title}
-            className="w-100 h-52 "
+            className="w-full h-52 object-cover"
           />
           <div
             className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
           >
-            <p className="text-yellow-500 text-lg font-bold">
-              {isLiveLinkAvailable ? "Consultez le projet" : "Lien indisponible"}
-            </p>
+            <p className="text-white text-lg font-semibold">{isLiveLinkAvailable ? "Consultez le projet" : "Lien indisponible"}</p>
           </div>
         </motion.div>
       </a>
@@ -67,12 +63,12 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
         {lines.map((lineStyle, index) => (
           <div
             key={index}
-            className="absolute bg-yellow-500"
+            className="absolute bg-purple-500"
             style={lineStyle}
           />
         ))}
 
-        <h3 className="text-xl font-bold text-yellow-500 mb-2">{title}</h3>
+        <h3 className="text-xl font-bold text-purple-500 mb-2">{title}</h3>
         <p className="text-gray-300 text-sm mb-4">{description}</p>
 
         {/* GitHub Button */}
@@ -83,7 +79,7 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
             rel={githubLink ? "noopener noreferrer" : ""}
             className={`flex items-center gap-2 text-sm px-4 py-2 rounded-lg font-medium transition-all duration-300 ${
               githubLink
-                ? "bg-yellow-500 text-gray-800 hover:bg-yellow-400 hover:scale-105"
+                ? "bg-purple-500 text-white hover:bg-purple-400 hover:scale-105"
                 : "bg-gray-600 text-gray-400 cursor-not-allowed"
             }`}
           >
@@ -148,7 +144,7 @@ function Projects() {
   return (
     <section
       id="projets"
-      className="font-poppins px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-yellow-500 min-h-screen flex flex-col items-center"
+      className="font-poppins px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center"
     >
       <motion.h2
         className="text-4xl font-bold text-center mb-12 mt-20"
