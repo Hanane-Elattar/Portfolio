@@ -141,13 +141,16 @@ const Slider = () => {
     { name: "Git", img: "https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_git-512.png" },
     { name: "GitHub", img: "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png" },
     { name: "GitLab CI/CD", img: "https://seeklogo.com/images/G/gitlab-logo-FAA48EFD02-seeklogo.com.png" },
-    { name: "Docker", img: "https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/IaVNfLY.png" },
+    // { name: "Docker", img: "https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/IaVNfLY.png" },
   ];
 
   const officeSkills = [
     { name: "Excel", img: "https://logodownload.org/wp-content/uploads/2020/04/excel-logo-0.png" },
     { name: "Word", img: "https://logodownload.org/wp-content/uploads/2018/10/word-logo-8.png" },
-    { name: "Power Point", img: "https://download.logo.wine/logo/Microsoft_PowerPoint/Microsoft_PowerPoint-Logo.wine.png" }
+    { name: "Power Point", img: "https://download.logo.wine/logo/Microsoft_PowerPoint/Microsoft_PowerPoint-Logo.wine.png" },
+    { name: "Power AMC", img: "https://www.nosware.com/wp-content/uploads/2019/11/powerdesigner-full.jpg" },
+    { name: "Star UML", img: "https://images.sftcdn.net/images/t_app-icon-m/p/4248566e-9137-11e6-a16f-00163ed833e7/2238785144/staruml-icon.png" }
+
   ];
 
   return (

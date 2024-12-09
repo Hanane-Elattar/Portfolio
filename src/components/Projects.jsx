@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import portfolio from '../assets/image.png'
-import enote from '../assets/enote.png'
-import isgihub from '../assets/isgihub.png'
+import store from '../assets/store.png'
+import tasks from '../assets/tasks.png'
 
 const generateRandomLineStyles = () => {
   const randomTop = Math.random() * 100 + "%";
@@ -49,7 +49,7 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
           <img
             src={image}
             alt={title}
-            className="w-full h-52 object-cover md:h-64 lg:h-72"
+            className="w-100 h-52 "
           />
           <div
             className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -102,24 +102,24 @@ const ProjetSection = () => {
   const projects = [
     {
       title: "Portfolio Moderne",
-      description: "Un portfolio interactif utilisant React et Tailwind CSS.",
+      description: "Un portfolio en ligne présentant mes projets, compétences et réalisations, offrant un aperçu complet de mon expertise et de ma passion pour le développement web.",
       image: portfolio,
       liveLink: window.location.href,
-      githubLink: "https://github.com/sasswinss/aznidi-salah",
+      githubLink: "https://github.com/Hanane-Elattar/Portfolio",
     },
     {
-      title: "E-Note",
-      description: "Une plateforme dédiée aux formateurs pour la gestion des séances et le suivi des formations",
-      image: enote,
-      liveLink: null,
-      githubLink: null,
+      title: "E-Store",
+      description: "Une plateforme e-commerce dédiée à la vente de parfums, offrant une large sélection de fragrances pour hommes et femmes, avec une expérience d'achat simple et rapide.",
+      image: store,
+      liveLink: "https://ecommerce-projet-nu.vercel.app/",
+      githubLink: "https://github.com/Hanane-Elattar/Ecommerce-projet",
     },
     {
-      title: "ISGIHub",
-      description: "Une plateforme communautaire pour faciliter l'échange de documents entre les stagiaires.",
-      image: isgihub,
-      liveLink: "https://spontaneous-fox-1e53d6.netlify.app/",
-      githubLink: "https://github.com/sasswinss/docs-isgi-front",
+      title: "Task-Management",
+      description: "Une plateforme de gestion des tâches conçue pour organiser, suivre et prioriser efficacement les projets, permettant une collaboration fluide et un suivi en temps réel des progrès.",
+      image: tasks,
+      liveLink: "https://task-management-taupe-delta.vercel.app/",
+      githubLink: "https://github.com/Hanane-Elattar/Task-Management",
     }
   ];
 

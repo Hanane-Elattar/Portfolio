@@ -6,19 +6,19 @@ const timeline = [
   {
     year: "2021-2022",
     title: "Baccalauréat Physique-Chimie",
-    description: "Mention Bien",
+    description: "Mention A.Bien",
     icon: <FaSchool className="text-yellow-500 text-3xl" />,
   },
   {
     year: "2022-2023",
-    title: "Faculté Ain Chock",
-    description: "Département Physique-Chimie",
+    title: "Faculté Des Science Ben M'sik",
+    description: "Département Physique",
     icon: <FaUniversity className="text-yellow-500 text-3xl" />,
   },
   {
     year: "2023-Présent",
-    title: "ISGI Casablanca",
-    description: "Développement Informatique (Fullstack)",
+    title: "CPF Hassania Casablanca",
+    description: "Développement Digital (Fullstack)",
     icon: <FaLaptopCode className="text-yellow-500 text-3xl" />,
   },
 ];
@@ -29,7 +29,7 @@ function About() {
     const randomLeft = Math.random() * 70 + "%";
     const randomRotation = Math.random() * 190 + "deg";
     const randomLength = Math.random() * 70 + "px";
-    const randomWidth = Math.random() * 1 + "px"; // Thin lines
+    const randomWidth = Math.random() * 1 + "px"; 
     return {
       top: randomTop,
       left: randomLeft,
@@ -43,7 +43,7 @@ function About() {
 
   return (
     <section className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-yellow-500 min-h-screen flex flex-col items-center overflow-x-hidden">
-      {/* Decorative lines */}
+      
       {lines.map((lineStyle, index) => (
         <div
           key={index}

@@ -61,14 +61,17 @@ function Footer() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
       >
-        <h2 className="text-3xl font-bold">AZNIDI SALAH</h2>
+        <h2 className="text-3xl font-bold">EL ATTAR HANANE</h2>
         <p className="text-lg text-gray-300 mt-2">
-          Développeur Full Stack • Passionné par le backend
+          Développeuse Full Stack 
         </p>
         <p className="text-sm text-gray-400 mt-2 max-w-md mx-auto">
-          Je suis un jeune développeur âgé de 19 ans, basé à Casablanca. J'aime
-          travailler avec des bases de données et résoudre des problèmes
-          complexes côté serveur.
+        Étudiant en 2ᵉ année de développement full-stack,
+        je suis passionnée par la création d'applications web modernes.
+        J'ai acquis des compétences solides en JavaScript, React, Laravel, MongoDB, HTML, CSS,
+        et Bootstrap pour des interfaces dynamiques,
+        ainsi qu'une maîtrise d'UML pour la modélisation des systèmes.
+        Je possède également des notions de base en Python.
         </p>
       </motion.div>
 
@@ -84,10 +87,10 @@ function Footer() {
           <FaEnvelope className="text-yellow-500 text-lg" />
           <p>
             <a
-              href="mailto:salahaznidi09@gmail.com"
+              href="mailto:hananeelattar405@gmail.com"
               className="hover:underline hover:text-yellow-400 transition"
             >
-              salahaznidi09@gmail.com
+              hananeelattar405@gmail.com
             </a>
           </p>
         </div>
@@ -95,16 +98,16 @@ function Footer() {
           <FaPhoneAlt className="text-yellow-500 text-lg" />
           <p>
             <a
-              href="tel:+212611385792"
+              href="tel:+212657035715"
               className="hover:underline hover:text-yellow-400 transition"
             >
-              +212 6 11 38 57 92
+              +212 6 57 03 57 15
             </a>
           </p>
         </div>
         <div className="flex items-start gap-4">
           <FaMapMarkerAlt className="text-yellow-500 text-lg" />
-          <p>19 Rue Ahmed Faris Mohamed Diouri, Casablanca</p>
+          <p>Casablanca, Maroc</p>
         </div>
       </motion.div>
 
@@ -117,7 +120,7 @@ function Footer() {
         transition={{ duration: 1 }}
       >
         <a
-          href="https://www.linkedin.com/in/salah-aznidi-96028530a/"
+          href="https://www.linkedin.com/in/hanane-el-attar-95b343304/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-gray-300 hover:text-yellow-400 transition text-sm"
@@ -126,7 +129,7 @@ function Footer() {
           LinkedIn
         </a>
         <a
-          href="https://github.com/sasswinss"
+          href="https://github.com/Hanane-Elattar"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-gray-300 hover:text-yellow-400 transition text-sm"
@@ -175,7 +178,7 @@ function Footer() {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <p>© 2024 AZNIDI SALAH. Tous droits réservés.</p>
+        <p>© 2024 EL ATTAR HANANE. Tous droits réservés.</p>
       </motion.div>
     </section>
   );

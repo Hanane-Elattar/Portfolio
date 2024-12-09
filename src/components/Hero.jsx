@@ -9,7 +9,7 @@ function Hero() {
   const changingTextRef = useRef(null);
 
   useEffect(() => {
-    const texts = ["Salah Aznidi", "un Développeur Fullstack"];
+    const texts = ["Hanane El attar", "une Développeuse Fullstack"];
     let currentIndex = 0;
 
     const changeText = () => {
@@ -34,7 +34,7 @@ function Hero() {
     const randomLeft = Math.random() * 70 + "%";
     const randomRotation = Math.random() * 190 + "deg";
     const randomLength = Math.random() * 70 + "px";
-    const randomWidth = Math.random() * 1 + "px"; // Thin lines
+    const randomWidth = Math.random() * 1 + "px"; 
     return {
       top: randomTop,
       left: randomLeft,
@@ -93,7 +93,7 @@ function Hero() {
           transition={{ delay: 0.5, duration: 0.6 }}
           className="mt-6 font-poppins text-lg sm:text-xl text-yellow-300 leading-relaxed"
         >
-          Étudiant en deuxième année de développement digital à l'ISGI Casablanca.
+          Étudiant en deuxième année de développement digital à CPF Hassania.
         </motion.p>
 
         {/* Call to Action */}
