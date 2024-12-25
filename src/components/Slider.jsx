@@ -33,24 +33,6 @@ const SliderComponent = ({ title, skills }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [controls, title]);
 
-  // Generate random line styles
-  const generateRandomLineStyles = () => {
-    const randomTop = Math.random() * 100 + "%";
-    const randomLeft = Math.random() * 70 + "%";
-    const randomRotation = Math.random() * 190 + "deg";
-    const randomLength = Math.random() * 70 + "px";
-    const randomWidth = Math.random() * 1 + "px"; // Thin lines
-    return {
-      top: randomTop,
-      left: randomLeft,
-      transform: `rotate(${randomRotation})`,
-      width: randomLength,
-      height: randomWidth,
-    };
-  };
-
-  const lines = Array.from({ length: 10 }).map(() => generateRandomLineStyles());
-
   return (
     <motion.div
       id={title}
@@ -58,18 +40,9 @@ const SliderComponent = ({ title, skills }) => {
       animate={controls}
       className="relative w-full mb-20"
     >
-      {/* Decorative lines */}
-      {lines.map((lineStyle, index) => (
-        <div
-          key={index}
-          className="absolute bg-purple-500"
-          style={lineStyle}
-        />
-      ))}
-
       {/* Section Title */}
       <motion.h3
-        className="text-1xl font-semibold text-center mb-6 font-poppins"
+        className="text-2xl font-semibold text-center mb-6 font-poppins"
         initial={{ opacity: 0, y: 50 }}
         animate={controls}
       >
@@ -77,7 +50,7 @@ const SliderComponent = ({ title, skills }) => {
       </motion.h3>
 
       {/* Slider Section */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 p-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 p-4">
         {skills.map((skill, index) => (
           <motion.div
             key={index}
@@ -96,7 +69,6 @@ const SliderComponent = ({ title, skills }) => {
           </motion.div>
         ))}
       </div>
-
 
       {/* Dots for navigation */}
       <div className="flex justify-center mt-10 space-x-2">
@@ -122,8 +94,9 @@ const Slider = () => {
     { name: "PHP", img: "https://pngimg.com/uploads/php/php_PNG35.png" },
     { name: "Laravel", img: "https://logospng.org/download/laravel/logo-laravel-icon-1024.png" },
     { name: "MySQL", img: "https://www.vhv.rs/dpng/f/543-5438423_mysql-png.png" },
+    { name: "Bootstrap", img: "https://www.logo.wine/a/logo/Bootstrap_(front-end_framework)/Bootstrap_(front-end_framework)-Logo.wine.svg" },
     { name: "MongoDB", img: "https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png" },
-    // { name: "Python", img: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png" },
+    { name: "Python", img: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png" },
   ];
 
   const devopsSkills = [
@@ -132,16 +105,16 @@ const Slider = () => {
     { name: "Git", img: "https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_git-512.png" },
     { name: "GitHub", img: "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png" },
     { name: "GitLab CI/CD", img: "https://seeklogo.com/images/G/gitlab-logo-FAA48EFD02-seeklogo.com.png" },
-    // { name: "Docker", img: "https://storage.googleapis.com/qvault-webapp-dynamic-assets/course_assets/IaVNfLY.png" },
+    { name: "Jira", img: "https://images.seeklogo.com/logo-png/37/2/jira-logo-png_seeklogo-373036.png?v=1957300245846281720" },
+    { name: "Trello", img: "https://www.logo.wine/a/logo/Trello/Trello-Logo.wine.svg" },
+    { name: "Figma", img: "https://images.seeklogo.com/logo-png/33/2/figma-logo-png_seeklogo-332042.png?v=1957363170977474520" },
   ];
 
   const officeSkills = [
-    { name: "Excel", img: "https://logodownload.org/wp-content/uploads/2020/04/excel-logo-0.png" },
-    { name: "Word", img: "https://logodownload.org/wp-content/uploads/2018/10/word-logo-8.png" },
-    { name: "Power Point", img: "https://download.logo.wine/logo/Microsoft_PowerPoint/Microsoft_PowerPoint-Logo.wine.png" },
-    { name: "Power AMC", img: "https://pic.clubic.com/v1/images/1501549/raw" },
-    { name: "Star UML", img: "https://images.sftcdn.net/images/t_app-icon-m/p/4248566e-9137-11e6-a16f-00163ed833e7/2238785144/staruml-icon.png" }
-
+    { name: "Excel", img: "https://images.seeklogo.com/logo-png/37/2/microsoft-excel-logo-png_seeklogo-370278.png?v=1957363170977474520" },
+    { name: "Word", img: "https://images.seeklogo.com/logo-png/37/2/microsoft-word-logo-png_seeklogo-370283.png?v=1957363170977474520" },
+    { name: "Power Point", img: "https://seeklogo.com/images/P/power-point-logo-00DB6B7C6E-seeklogo.com.png" },
+    { name: "Slack", img: "https://images.seeklogo.com/logo-png/43/2/slack-logo-png_seeklogo-436679.png?v=1957177683418755312" }
   ];
 
   return (

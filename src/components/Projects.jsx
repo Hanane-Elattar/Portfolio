@@ -1,28 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-import portfolio from '../assets/image.png'
-import store from '../assets/store.png'
-import tasks from '../assets/tasks.png'
-
-const generateRandomLineStyles = () => {
-  const randomTop = Math.random() * 100 + "%";
-  const randomLeft = Math.random() * 70 + "%";
-  const randomRotation = Math.random() * 190 + "deg";
-  const randomLength = Math.random() * 70 + "px";
-  const randomWidth = Math.random() * 1 + "px"; // Thin lines
-  return {
-    top: randomTop,
-    left: randomLeft,
-    transform: `rotate(${randomRotation})`,
-    width: randomLength,
-    height: randomWidth,
-  };
-};
+import portfolio from '../assets/image.png';
+import store from '../assets/store.png';
+import tasks from '../assets/tasks.png';
 
 const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
   const isLiveLinkAvailable = Boolean(liveLink);
-  const lines = Array.from({ length: 3 }).map(() => generateRandomLineStyles()); // Trois lignes par carte
 
   return (
     <motion.div
@@ -58,16 +42,7 @@ const ProjectCard = ({ title, description, image, liveLink, githubLink }) => {
       </a>
 
       {/* Description Section */}
-      <div className="p-4 flex flex-col justify-between bg-gray-800 relative">
-        {/* Decorative lines */}
-        {lines.map((lineStyle, index) => (
-          <div
-            key={index}
-            className="absolute bg-purple-500"
-            style={lineStyle}
-          />
-        ))}
-
+      <div className="p-4 flex flex-col justify-between bg-gray-800">
         <h3 className="text-xl font-bold text-purple-500 mb-2">{title}</h3>
         <p className="text-gray-300 text-sm mb-4">{description}</p>
 

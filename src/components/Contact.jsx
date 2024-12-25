@@ -14,44 +14,14 @@ const validationSchema = Yup.object({
   message: Yup.string().required("Le message est requis."),
 });
 
-// Function to generate random line styles
-const generateRandomLineStyles = () => {
-  const randomTop = Math.random() * 100 + "%";
-  const randomLeft = Math.random() * 70 + "%";
-  const randomRotation = Math.random() * 190 + "deg";
-  const randomLength = Math.random() * 70 + "px";
-  const randomWidth = Math.random() * 1 + "px"; // Thin lines
-  return {
-    top: randomTop,
-    left: randomLeft,
-    transform: `rotate(${randomRotation})`,
-    width: randomLength,
-    height: randomWidth,
-  };
-};
-
 function Contact() {
   // Handler de soumission de formulaire
   const [state, handleSubmit] = useForm("xanydyqk");
   const succededMessage = () => toast.success('Un message a été envoyé avec succès');
   const errorMessage = () => toast.error("Une erreur s'est produite.");
 
-  // Generate 15 random lines
-  const lines = Array.from({ length: 15 }).map(() => generateRandomLineStyles());
-
   return (
     <section id="contactez-moi" className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center justify-center">
-      {/* Render random lines */}
-      {lines.map((line, index) => (
-        <motion.div
-          key={index}
-          className="absolute bg-purple-500"
-          style={line}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1, transition: { duration: 2, repeat: Infinity, repeatType: "reverse" } }}
-        />
-      ))}
-
       <motion.h2
         className="text-4xl font-bold text-center mb-12 mt-20 text-white"
         initial={{ opacity: 0, y: 50 }}

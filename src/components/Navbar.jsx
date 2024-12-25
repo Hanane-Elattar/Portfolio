@@ -60,7 +60,7 @@ function Navbar() {
           </button>
 
           {/* Liens de navigation pour desktop */}
-          <div className="hidden md:flex md:items-center md:justify-end md:space-x-10 font-poppins">
+          <div className="hidden md:flex md:items-center  md:space-x-10 font-poppins">
             {["Accueil", "Projets", "Contactez-moi"].map((link, index) => (
               <a
                 key={index}
