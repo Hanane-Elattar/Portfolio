@@ -100,7 +100,7 @@ function Footer() {
         viewport={{ once: true }}
         transition={{ duration: 1 }}
       >
-        <p>© 2024 EL ATTAR HANANE. Tous droits réservés.</p>
+        <p>© 2025 EL ATTAR HANANE. Tous droits réservés.</p>
       </motion.div>
     </section>
   );

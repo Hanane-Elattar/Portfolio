@@ -1,10 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
-// Replace these paths with actual image paths
 import js from "../assets/js.png"; 
 import business from "../assets/business.png";
 import scrum from "../assets/scrum.png";
+import react from "../assets/react.png";
 
 const ProjectCard = ({ title, description, image, liveLink }) => {
   const isLiveLinkAvailable = Boolean(liveLink);
@@ -56,22 +56,29 @@ const ProjetSection = () => {
       liveLink: "/js.pdf",
     },
     {
-      title: "BIFPC : Business Intelligence Professional Certification – Certiprof",
+      title: "Business Intelligence Professional Certification",
       description: "Compétences en analyse de données et prise de décision stratégique.",
       image: business,
       liveLink: "/bi.pdf",
     },
     {
-      title: "SFPC : Scrum Foundation Professional Certification – Certiprof",
+      title: "Scrum Foundation Professional Certification",
       description: "Maîtrise des principes et méthodologies agiles Scrum pour la gestion de projets.",
       image: scrum,
       liveLink: "/scrum.pdf",
     },
+    {
+      title: "React Front End Developer – HackerRank",
+      description: "Initiation au développement React pour concevoir des interfaces web dynamiques et modernes.",
+      image: react, 
+      liveLink: "/react.pdf", 
+    },
+    
   ];
 
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
@@ -93,10 +100,10 @@ function Certif() {
   return (
     <section
       id="projets"
-      className="font-poppins px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center"
+      className="font-poppins px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-800 min-h-screen flex flex-col items-center"
     >
       <motion.h2
-        className="text-4xl font-bold text-center mb-12 mt-20"
+        className="text-5xl font-bold text-center mb-16 mt-20"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

@@ -7,7 +7,7 @@ import { Audio } from "react-loader-spinner";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Validation Schema using Yup
+// Schéma de validation
 const validationSchema = Yup.object({
   name: Yup.string().required("Le nom est requis."),
   email: Yup.string().email("Adresse email invalide.").required("L'email est requis."),
@@ -15,13 +15,31 @@ const validationSchema = Yup.object({
 });
 
 function Contact() {
-  // Handler de soumission de formulaire
-  const [state, handleSubmit] = useForm("xanydyqk");
-  const succededMessage = () => toast.success('Un message a été envoyé avec succès');
+  const [state, handleSubmit] = useForm("xgvvplag"); 
+  const succeededMessage = () => toast.success('Un message a été envoyé avec succès');
   const errorMessage = () => toast.error("Une erreur s'est produite.");
 
+  
+  const handleFormSubmit = async (values, { resetForm }) => {
+    const response = await handleSubmit({
+      name: values.name,
+      email: values.email,
+      message: values.message,
+    });
+
+    if (response.succeeded) {
+      succeededMessage();
+      resetForm(); // Réinitialise le formulaire après succès
+    } else {
+      errorMessage();
+    }
+  };
+
   return (
-    <section id="contactez-moi" className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center justify-center">
+    <section
+      id="contactez-moi"
+      className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center justify-center"
+    >
       <motion.h2
         className="text-4xl font-bold text-center mb-12 mt-20 text-white"
         initial={{ opacity: 0, y: 50 }}
@@ -37,7 +55,7 @@ function Contact() {
           message: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={handleSubmit}
+        onSubmit={handleFormSubmit} // Fonction personnalisée
       >
         {({ touched, errors }) => (
           <Form className="w-full max-w-lg space-y-8 p-6 bg-gray-900 bg-opacity-60 rounded-lg shadow-lg">
@@ -95,18 +113,16 @@ function Contact() {
               <ErrorMessage name="message" component="div" className="text-red-500 text-sm mt-1" />
             </motion.div>
 
-            {/* Submit Button */}
+            {/* Bouton d'envoi */}
             <motion.button
               type="submit"
-              className="flex justify-center text-center items-center w-full mt-6 bg-purple-500 text-white font-semibold py-3 rounded-md hover:bg-purple-400 transition-all duration-300"
+              className="flex justify-center items-center w-full mt-6 bg-purple-500 text-white font-semibold py-3 rounded-md hover:bg-purple-400 transition-all duration-300"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
-              onClick={state.succeeded ? succededMessage : errorMessage}
             >
-              {
-                !state.submitting ? 'Envoyer' : 
-                <Audio 
+              {!state.submitting ? "Envoyer" : (
+                <Audio
                   height="25"
                   width="25"
                   radius="9"
@@ -115,10 +131,10 @@ function Contact() {
                   wrapperStyle
                   wrapperClass
                 />
-              }
+              )}
             </motion.button>
 
-            <ToastContainer position="bottom-right"/>
+            <ToastContainer position="bottom-right" />
           </Form>
         )}
       </Formik>
