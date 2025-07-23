@@ -1,10 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { useForm } from '@formspree/react';
 import * as Yup from "yup";
 import { Audio } from "react-loader-spinner";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 // Schéma de validation
@@ -14,23 +14,85 @@ const validationSchema = Yup.object({
   message: Yup.string().required("Le message est requis."),
 });
 
+// Composant pour l'alerte stylisée
+const CustomAlert = ({ message, type, onClose }) => {
+  return (
+    <AnimatePresence>
+      {message && (
+        <motion.div
+          className="fixed bottom-4 right-4 z-50"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 50 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            className={`p-4 rounded-lg shadow-lg max-w-xs w-full ${
+              type === 'success' ? 'bg-green-600' : 'bg-red-600'
+            } text-white`}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.8, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <h3 className="text-md font-semibold mb-1">
+              {type === 'success' ? 'Succès' : 'Erreur'}
+            </h3>
+            <p className="text-sm">{message}</p>
+            <button
+              onClick={onClose}
+              className="mt-3 bg-white text-gray-900 px-3 py-1 text-sm rounded-md hover:bg-gray-200 transition-all duration-200"
+            >
+              Fermer
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
 function Contact() {
   const [state, handleSubmit] = useForm("xgvvplag"); 
-  const succeededMessage = () => toast.success('Un message a été envoyé avec succès');
-  const errorMessage = () => toast.error("Une erreur s'est produite.");
+  const [alert, setAlert] = useState({ message: '', type: '' });
 
-  
-  const handleFormSubmit = async (values, { resetForm }) => {
-    const response = await handleSubmit({
-      name: values.name,
-      email: values.email,
-      message: values.message,
+  const succeededMessage = () => {
+    setAlert({
+      message: "Le message a été envoyé avec succès !",
+      type: 'success',
     });
+  };
 
-    if (response.succeeded) {
-      succeededMessage();
-      resetForm(); // Réinitialise le formulaire après succès
-    } else {
+  const errorMessage = () => {
+    setAlert({
+      message: "Une erreur s'est produite lors de l'envoi du message.",
+      type: 'error',
+    });
+  };
+
+  const closeAlert = () => {
+    setAlert({ message: '', type: '' });
+  };
+
+  const handleFormSubmit = async (values, { resetForm }) => {
+    try {
+      await handleSubmit(values); // Formspree handleSubmit accepte directement les valeurs
+
+      if (state.succeeded) {
+        succeededMessage();
+        resetForm(); // Vide le formulaire
+      } else {
+        // Vérifie si state.errors est un tableau et non null/undefined
+        if (Array.isArray(state.errors) && state.errors.length > 0) {
+          errorMessage();
+        } else {
+          // Gestion d'erreur générique si state.errors n'est pas défini
+          errorMessage();
+        }
+      }
+    } catch (error) {
+      // Capture les erreurs réseau ou autres exceptions
+      console.error("Erreur lors de l'envoi du formulaire:", error);
       errorMessage();
     }
   };
@@ -55,7 +117,7 @@ function Contact() {
           message: "",
         }}
         validationSchema={validationSchema}
-        onSubmit={handleFormSubmit} // Fonction personnalisée
+        onSubmit={handleFormSubmit}
       >
         {({ touched, errors }) => (
           <Form className="w-full max-w-lg space-y-8 p-6 bg-gray-900 bg-opacity-60 rounded-lg shadow-lg">
@@ -116,7 +178,8 @@ function Contact() {
             {/* Bouton d'envoi */}
             <motion.button
               type="submit"
-              className="flex justify-center items-center w-full mt-6 bg-purple-500 text-white font-semibold py-3 rounded-md hover:bg-purple-400 transition-all duration-300"
+              disabled={state.submitting}
+              className="flex justify-center items-center w-full mt-6 bg-purple-500 text-white font-semibold py-3 rounded-md hover:bg-purple-400 transition-all duration-300 disabled:opacity-50"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1 }}
@@ -128,8 +191,8 @@ function Contact() {
                   radius="9"
                   color="green"
                   ariaLabel="loading"
-                  wrapperStyle
-                  wrapperClass
+                  wrapperStyle={{}}
+                  wrapperClass=""
                 />
               )}
             </motion.button>
@@ -138,6 +201,12 @@ function Contact() {
           </Form>
         )}
       </Formik>
+
+      <CustomAlert
+        message={alert.message}
+        type={alert.type}
+        onClose={closeAlert}
+      />
     </section>
   );
 }

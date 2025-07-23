@@ -93,27 +93,32 @@ const Slider = () => {
     { name: "Tailwind CSS", img: "https://iconape.com/wp-content/files/an/351546/png/tailwind-css-logo.png" },
     { name: "PHP", img: "https://pngimg.com/uploads/php/php_PNG35.png" },
     { name: "Laravel", img: "https://logospng.org/download/laravel/logo-laravel-icon-1024.png" },
-    { name: "MySQL", img: "https://www.vhv.rs/dpng/f/543-5438423_mysql-png.png" },
-    { name: "Bootstrap", img: "https://www.logo.wine/a/logo/Bootstrap_(front-end_framework)/Bootstrap_(front-end_framework)-Logo.wine.svg" },
-    { name: "MongoDB", img: "https://cdn.icon-icons.com/icons2/2415/PNG/512/mongodb_original_logo_icon_146424.png" },
+    { name: "MySQL", img: "https://pngimg.com/uploads/mysql/mysql_PNG22.png" },
+    { name: "Bootstrap", img: "https://img.icons8.com/?size=100&id=84710&format=png&color=000000" },
+    { name: "MongoDB", img: "https://cdn4.iconfinder.com/data/icons/logos-3/512/mongodb-2-512.png" },
     { name: "Python", img: "https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/267_Python_logo-512.png" },
+    { name: "Docker", img: "https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_docker-256.png" },
+    { name: "Express.js", img: "https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png&color=000000" },
+    { name: "Redux", img: "https://upload.wikimedia.org/wikipedia/commons/4/49/Redux.png" },
+    { name: "Vite", img: "https://img.icons8.com/?size=100&id=YO3YqSaTOu5K&format=png&color=000000" },
+
   ];
 
   const devopsSkills = [
     { name: "Agile", img: "https://freepngdesign.com/content/uploads/images/p-1513-8-agile-software-logo-png-transparent-logo-115960932505.png" },
     { name: "Scrum", img: "https://seeklogo.com/images/S/scrum-logo-B057CBD9B8-seeklogo.com.png" },
-    { name: "Git", img: "https://cdn3.iconfinder.com/data/icons/social-media-2169/24/social_media_social_media_logo_git-512.png" },
     { name: "GitHub", img: "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png" },
     { name: "GitLab CI/CD", img: "https://seeklogo.com/images/G/gitlab-logo-FAA48EFD02-seeklogo.com.png" },
     { name: "Jira", img: "https://images.seeklogo.com/logo-png/37/2/jira-logo-png_seeklogo-373036.png?v=1957300245846281720" },
-    { name: "Trello", img: "https://www.logo.wine/a/logo/Trello/Trello-Logo.wine.svg" },
     { name: "Figma", img: "https://images.seeklogo.com/logo-png/33/2/figma-logo-png_seeklogo-332042.png?v=1957363170977474520" },
+    { name: "Docker Compose", img: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" },
+    { name: "Postman", img: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Postman_%28software%29.png" },
   ];
 
   const officeSkills = [
     { name: "Excel", img: "https://images.seeklogo.com/logo-png/37/2/microsoft-excel-logo-png_seeklogo-370278.png?v=1957363170977474520" },
     { name: "Word", img: "https://images.seeklogo.com/logo-png/37/2/microsoft-word-logo-png_seeklogo-370283.png?v=1957363170977474520" },
-    { name: "Power Point", img: "https://seeklogo.com/images/P/power-point-logo-00DB6B7C6E-seeklogo.com.png" },
+    { name: "Power Point", img: "https://img.icons8.com/?size=100&id=G4cbAayb1pvw&format=png&color=000000" },
     { name: "Slack", img: "https://images.seeklogo.com/logo-png/43/2/slack-logo-png_seeklogo-436679.png?v=1957177683418755312" }
   ];
 
@@ -131,7 +136,7 @@ const Slider = () => {
       <SliderComponent title="Mes Compétences Techniques" skills={hardSkills} />
 
       {/* DevOps Skills Slider */}
-      <SliderComponent title="Mes Compétences Collaboratives" skills={devopsSkills} />
+      <SliderComponent title="Outils et Méthodologies" skills={devopsSkills} />
 
       {/* Office Skills Slider */}
       <SliderComponent title="Mes Compétences Bureautiques" skills={officeSkills} />

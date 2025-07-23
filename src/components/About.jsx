@@ -4,7 +4,7 @@ import { FaSchool, FaUniversity, FaLaptopCode } from "react-icons/fa";
 
 const timeline = [
   {
-    year: "2023-Présent",
+    year: "2023-2025",
     title: "CPF Hassania Casablanca",
     description: "Développement Digital (Fullstack)",
     icon: <FaLaptopCode className="text-purple-500 text-3xl" />,
