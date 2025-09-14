@@ -79,12 +79,10 @@ function Hero() {
           className="mt-12 font-poppins text-purple-300"
         >
           <p className="mt-2">
-            Étudiant en 2ᵉ année de développement Digital Full Stack,
-            passionné par la création d’applications web innovantes. Compétences
-            solides en développement frontend et backend, gestion de bases de
-            données, et utilisation des outils modernes de collaboration.
-            Motivé pour apprendre de nouvelles technologies et contribuer à des
-            projets collaboratifs.
+            Développeuse Full Stack, créative et polyvalente, 
+            maîtrisant le développement web côté client et serveur, 
+            ainsi que la gestion des données, passionnée par les technologies modernes.
+
           </p>
           <div className="mt-6 flex space-x-4">
             <a

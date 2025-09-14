@@ -119,7 +119,8 @@ const Slider = () => {
     { name: "Excel", img: "https://images.seeklogo.com/logo-png/37/2/microsoft-excel-logo-png_seeklogo-370278.png?v=1957363170977474520" },
     { name: "Word", img: "https://images.seeklogo.com/logo-png/37/2/microsoft-word-logo-png_seeklogo-370283.png?v=1957363170977474520" },
     { name: "Power Point", img: "https://img.icons8.com/?size=100&id=G4cbAayb1pvw&format=png&color=000000" },
-    { name: "Slack", img: "https://images.seeklogo.com/logo-png/43/2/slack-logo-png_seeklogo-436679.png?v=1957177683418755312" }
+    { name: "Microsoft Project", img: "https://www.cotec.de/media/88/0a/bf/1697185180/37c863f294a54d9c28c39aefedfda73c.JPG" },
+
   ];
 
   return (
@@ -139,7 +140,7 @@ const Slider = () => {
       <SliderComponent title="Outils et Méthodologies" skills={devopsSkills} />
 
       {/* Office Skills Slider */}
-      <SliderComponent title="Mes Compétences Bureautiques" skills={officeSkills} />
+      <SliderComponent title="Mes Compétences Bureautiques"  skills={officeSkills} />
     </div>
   );
 };
