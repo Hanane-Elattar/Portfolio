@@ -5,6 +5,9 @@ import js from "../assets/js.png";
 import business from "../assets/business.png";
 import scrum from "../assets/scrum.png";
 import react from "../assets/react.png";
+import sql from "../assets/sql.png";
+import git from "../assets/git.png";
+
 
 const ProjectCard = ({ title, description, image, liveLink }) => {
   const isLiveLinkAvailable = Boolean(liveLink);
@@ -56,13 +59,13 @@ const ProjetSection = () => {
       liveLink: "/js.pdf",
     },
     {
-      title: "Business Intelligence Professional Certification",
+      title: "Business Intelligence Professional Certification – Certiprof",
       description: "Compétences en analyse de données et prise de décision stratégique.",
       image: business,
       liveLink: "/bi.pdf",
     },
     {
-      title: "Scrum Foundation Professional Certification",
+      title: "Scrum Foundation Professional Certification – Certiprof",
       description: "Maîtrise des principes et méthodologies agiles Scrum pour la gestion de projets.",
       image: scrum,
       liveLink: "/scrum.pdf",
@@ -73,12 +76,26 @@ const ProjetSection = () => {
       image: react, 
       liveLink: "/react.pdf", 
     },
+    {
+      title: "Certificate of Achievement in SQL – 365 Data Science",
+      description: "Certification obtenue pour la maîtrise des bases de données SQL et la gestion des requêtes complexes.",
+      image: sql, 
+      liveLink: "/sql.pdf", 
+    },
+    {
+      title: "Certificate of Achievement in Git and GitHub – 365 Data Science",
+      description: "Validation des compétences en gestion de versions et collaboration sur des projets à l’aide de Git et GitHub.",
+      image: git, 
+      liveLink: "/git.pdf", 
+    },
+
+
     
   ];
 
   return (
     <motion.div
-      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+      className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}

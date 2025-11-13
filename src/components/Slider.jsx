@@ -106,9 +106,9 @@ const Slider = () => {
 
   const devopsSkills = [
     { name: "Agile", img: "https://freepngdesign.com/content/uploads/images/p-1513-8-agile-software-logo-png-transparent-logo-115960932505.png" },
-    { name: "Scrum", img: "https://seeklogo.com/images/S/scrum-logo-B057CBD9B8-seeklogo.com.png" },
+    { name: "Scrum", img: "https://images.seeklogo.com/logo-png/42/2/scrum-logo-png_seeklogo-428358.png" },
     { name: "GitHub", img: "https://logos-world.net/wp-content/uploads/2020/11/GitHub-Symbol.png" },
-    { name: "GitLab CI/CD", img: "https://seeklogo.com/images/G/gitlab-logo-FAA48EFD02-seeklogo.com.png" },
+    { name: "GitLab", img: "https://images.seeklogo.com/logo-png/27/2/gitlab-logo-png_seeklogo-273186.png" },
     { name: "Jira", img: "https://images.seeklogo.com/logo-png/37/2/jira-logo-png_seeklogo-373036.png?v=1957300245846281720" },
     { name: "Figma", img: "https://images.seeklogo.com/logo-png/33/2/figma-logo-png_seeklogo-332042.png?v=1957363170977474520" },
     { name: "Docker Compose", img: "https://upload.wikimedia.org/wikipedia/commons/4/4e/Docker_%28container_engine%29_logo.svg" },
@@ -124,12 +124,13 @@ const Slider = () => {
   ];
 
   return (
-    <div className="relative isolate px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center">
+    <div className="relative isolate px-6 lg:px-10 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center">
       <motion.h2
         className="text-4xl font-bold text-center mb-12 font-poppins"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
       >
+        <br /><br />
         Mes Compétences
       </motion.h2>
 
