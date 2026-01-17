@@ -86,7 +86,7 @@ function Navbar() {
           }`}
         >
           <div className="text-center text-purple-500 space-y-6">
-            {["accueil", "projets", "contactez-moi"].map((link, index) => (
+            {["accueil", "projets", "contact"].map((link, index) => (
               <a
                 key={index}
                 href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}

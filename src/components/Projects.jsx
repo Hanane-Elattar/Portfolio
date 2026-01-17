@@ -122,7 +122,7 @@ function Projects() {
       className="font-poppins px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center"
     >
       <motion.h2
-        className="text-4xl font-bold text-center mb-12 mt-20"
+        className="text-3xl font-bold text-center mb-12 mt-20"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}

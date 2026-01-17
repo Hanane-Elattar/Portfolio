@@ -120,19 +120,33 @@ function Hero() {
           </motion.div>
         </div>
 
-        {/* Image décorative */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
           className="w-full lg:w-1/2 flex justify-center"
         >
-          <img
-            src="https://cdn3.iconfinder.com/data/icons/web-development-168/512/Woman_Web_Developer2.png"
-            alt="Illustration développeuse"
-            className="w-80 md:w-96 rounded-2xl shadow-lg"
-          />
+          <div className="w-[320px] md:w-[380px]
+                          bg-black/50 backdrop-blur-xl
+                          border border-purple-500/30
+                          rounded-xl shadow-2xl shadow-purple-900/40">
+            <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10">
+              <span className="w-3 h-3 bg-red-500 rounded-full"></span>
+              <span className="w-3 h-3 bg-yellow-400 rounded-full"></span>
+              <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+            </div>
+            <pre className="p-4 text-sm font-mono text-purple-300 leading-relaxed">
+{`const profile = {
+  role: "Développeuse Full Stack",
+  stack: ["React", "Laravel", "MySQL"],
+  passion: "Passionnée par le développement
+            web et l’innovation digitale"
+};`}
+        </pre>
+        </div>
         </motion.div>
+
+
       </div>
     </section>
   );

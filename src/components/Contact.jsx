@@ -88,8 +88,12 @@ function Contact() {
   };
 
   return (
-    <section className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center justify-center">
-      <h2 className="text-4xl font-bold text-center mb-12 mt-20 text-white">Contactez-moi</h2>
+    <section 
+    id="contact"
+    className="font-poppins relative isolate px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center justify-center">
+      <h2 className="text-3xl font-bold text-center mb-12 mt-20">
+        Contactez-moi
+      </h2>
 
       <Formik
         initialValues={{ name: "", email: "", message: "" }}

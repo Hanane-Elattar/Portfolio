@@ -1,89 +1,161 @@
-import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { useState } from "react";
+import { motion } from "framer-motion";
 
-const SliderComponent = ({ title, skills }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const controls = useAnimation();
+const ITEMS_PER_PAGE = 4;
 
-  // Automatic slider rotation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % skills.length);
-    }, 3000); // Changes every 3 seconds
-    return () => clearInterval(interval);
-  }, [skills.length]);
+const PaginatedSkills = ({ title, skills }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const totalPages = Math.ceil(skills.length / ITEMS_PER_PAGE);
 
-  // Scroll animation
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById(title);
-      const sectionTop = section.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-
-      if (sectionTop < windowHeight - 50) {
-        controls.start({
-          opacity: 1,
-          y: 0,
-          transition: { duration: 1, ease: "easeOut" },
-        });
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [controls, title]);
+  const currentSkills = skills.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
 
   return (
     <motion.div
-      id={title}
-      initial={{ opacity: 0, y: 100 }}
-      animate={controls}
-      className="relative w-full mb-20"
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      className="w-full mb-32"
     >
-      {/* Section Title */}
-      <motion.h3
-        className="text-2xl font-semibold text-center mb-6 font-poppins"
-        initial={{ opacity: 0, y: 50 }}
-        animate={controls}
-      >
+      <h3 className="text-3xl font-bold text-center mb-12 font-poppins bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
         {title}
-      </motion.h3>
+      </h3>
 
-      {/* Slider Section */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4 p-4">
-        {skills.map((skill, index) => (
+      {/* Grille compétences */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 max-w-7xl mx-auto">
+        {currentSkills.map((skill, i) => (
           <motion.div
-            key={index}
-            className="flex flex-col items-center justify-center bg-gray-800 p-8 rounded-lg shadow-md hover:shadow-2xl transition-shadow duration-300 cursor-pointer"
-            whileHover={{ scale: 1.1, rotate: 5 }}
-            transition={{ duration: 0.3 }}
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1 }}
+            whileHover={{ y: -12, rotate: 3 }}
+            className="group relative bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500"
           >
+            {/* Effet brillance au hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
             <img
               src={skill.img}
               alt={skill.name}
-              className="w-32 h-32 rounded-lg object-contain transition-transform duration-300"
+              className="relative z-10 w-28 h-28 object-contain mx-auto mb-4 filter drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
             />
-            <p className="mt-4 text-xl font-semibold text-center font-poppins">
+            <p className="relative z-10 text-lg font-semibold text-center text-white tracking-wide">
               {skill.name}
             </p>
           </motion.div>
         ))}
       </div>
 
-      {/* Dots for navigation */}
-      <div className="flex justify-center mt-10 space-x-2">
-        {skills.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-          ></button>
+      {/* Pagination ultra moderne : seulement flèches + barre de progression */}
+      {totalPages > 1 && (
+        <div className="flex flex-col items-center mt-16 space-y-6">
+          {/* Barre de progression fine */}
+          <div className="w-64 h-1 bg-gray-800 rounded-full overflow-hidden">
+            <motion.div
+              className="h-full bg-gradient-to-r from-purple-500 to-pink-500"
+              initial={{ width: 0 }}
+              animate={{ width: `${(currentPage / totalPages) * 100}%` }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            />
+          </div>
+
+          {/* Flèches élégantes */}
+          <div className="flex items-center gap-12">
+            <button
+              onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+              disabled={currentPage === 1}
+              className={`group p-4 rounded-full transition-all duration-400 ${
+                currentPage === 1
+                  ? "bg-gray-800/50 text-gray-600 cursor-not-allowed"
+                  : "bg-white/10 backdrop-blur-md hover:bg-white/20 hover:scale-110 shadow-2xl"
+              }`}
+              aria-label="Précédent"
+            >
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Indicateur discret page actuelle */}
+            <span className="text-gray-400 text-sm font-medium tracking-wider">
+              {currentPage} / {totalPages}
+            </span>
+
+            <button
+              onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+              disabled={currentPage === totalPages}
+              className={`group p-4 rounded-full transition-all duration-400 ${
+                currentPage === totalPages
+                  ? "bg-gray-800/50 text-gray-600 cursor-not-allowed"
+                  : "bg-white/10 backdrop-blur-md hover:bg-white/20 hover:scale-110 shadow-2xl"
+              }`}
+              aria-label="Suivant"
+            >
+              <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+    </motion.div>
+  );
+};
+
+const FullSkills = ({ title, skills }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 80 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.9, ease: "easeOut" }}
+      className="w-full mb-32"
+    >
+      {/* Titre avec gradient moderne */}
+      <h3 className="text-3xl font-bold text-center mb-12 font-poppins bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        {title}
+      </h3>
+
+      {/* Grille complète – même style que les cartes paginées */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8 px-4 max-w-7xl mx-auto">
+        {skills.map((skill, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1, duration: 0.6 }}
+            whileHover={{ y: -12, rotate: 3 }}
+            className="group relative bg-gray-800/50 backdrop-blur-xl border border-gray-700/50 rounded-2xl p-8 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 cursor-default"
+          >
+            {/* Effet de brillance au hover */}
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 to-pink-600/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+            <img
+              src={skill.img}
+              alt={skill.name}
+              className="relative z-10 w-28 h-28 object-contain mx-auto mb-4 filter drop-shadow-lg group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <p className="relative z-10 text-lg font-semibold text-center text-white tracking-wide">
+              {skill.name}
+            </p>
+          </motion.div>
         ))}
       </div>
     </motion.div>
   );
 };
 
+// ──────────────────────────────
+// COMPOSANT PRINCIPAL (c’est ici que tu mets tes données)
+// ──────────────────────────────
 const Slider = () => {
+  // ─────────────── TES DONNÉES ICI ───────────────
   const hardSkills = [
     { name: "HTML5", img: "https://clipground.com/images/html5-logo-2.png" },
     { name: "CSS3", img: "https://umerahmad9126.github.io/static/media/css.e31e30fbd381c3f058df.png" },
@@ -101,7 +173,6 @@ const Slider = () => {
     { name: "Express.js", img: "https://img.icons8.com/?size=100&id=SDVmtZ6VBGXt&format=png&color=000000" },
     { name: "Redux", img: "https://upload.wikimedia.org/wikipedia/commons/4/49/Redux.png" },
     { name: "Vite", img: "https://img.icons8.com/?size=100&id=YO3YqSaTOu5K&format=png&color=000000" },
-
   ];
 
   const devopsSkills = [
@@ -120,28 +191,22 @@ const Slider = () => {
     { name: "Word", img: "https://images.seeklogo.com/logo-png/37/2/microsoft-word-logo-png_seeklogo-370283.png?v=1957363170977474520" },
     { name: "Power Point", img: "https://img.icons8.com/?size=100&id=G4cbAayb1pvw&format=png&color=000000" },
     { name: "Microsoft Project", img: "https://www.cotec.de/media/88/0a/bf/1697185180/37c863f294a54d9c28c39aefedfda73c.JPG" },
-
   ];
+  // ─────────────────────────────────────────────
 
   return (
-    <div className="relative isolate px-6 lg:px-10 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 min-h-screen flex flex-col items-center">
+    <div className="relative isolate px-6 lg:px-10 bg-gradient-to-r from-gray-900 to-gray-800 text-purple-500 py-20">
       <motion.h2
-        className="text-4xl font-bold text-center mb-12 font-poppins"
         initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
+        whileInView={{ opacity: 1, y: 0 }}
+        className="text-4xl font-bold text-center mb-12 mt-5"
       >
-        <br /><br />
         Mes Compétences
       </motion.h2>
 
-      {/* Hard Skills Slider */}
-      <SliderComponent title="Mes Compétences Techniques" skills={hardSkills} />
-
-      {/* DevOps Skills Slider */}
-      <SliderComponent title="Outils et Méthodologies" skills={devopsSkills} />
-
-      {/* Office Skills Slider */}
-      <SliderComponent title="Mes Compétences Bureautiques"  skills={officeSkills} />
+      <PaginatedSkills title="Compétences Techniques" skills={hardSkills} />
+      <PaginatedSkills title="Outils et Méthodologies" skills={devopsSkills} />
+      <FullSkills title="Compétences Bureautiques" skills={officeSkills} />
     </div>
   );
 };

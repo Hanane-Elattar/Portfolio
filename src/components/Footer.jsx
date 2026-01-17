@@ -84,7 +84,7 @@ function Footer() {
           Projets
         </a>
         <a
-          href="#contactez-moi"
+          href="#contact"
           className="text-gray-300 hover:text-purple-400 transition flex items-center gap-2"
         >
           <FiPhone className="text-lg" />

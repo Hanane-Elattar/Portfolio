@@ -1,24 +1,25 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { FaSchool, FaUniversity, FaLaptopCode } from "react-icons/fa";
+import { FaSchool, FaLaptopCode, FaGraduationCap } from "react-icons/fa";
 
 const timeline = [
   {
-    year: "2023-2025",
-    title: "CPF Hassania Casablanca",
-    description: "Développement Digital (Fullstack)",
-    icon: <FaLaptopCode className="text-purple-500 text-3xl" />,
+    year: "Septembre - Janvier 2025",
+    title: "Université Internationale Averroès",
+    description: "Formation JobinTech en Développement Full Stack (React, Java & Spring Boot)",
+    icon: <FaLaptopCode className="text-purple-500 text-3xl"/>,
+    highlight: true,
   },
   {
-    year: "2022-2023",
-    title: "Faculté Des Science Ben M'sik",
-    description: "Département Physique",
-    icon: <FaUniversity className="text-purple-500 text-3xl" />,
+    year: "2023-2025",
+    title: "Centre de Formation Professionnelle Hassania, Casablanca",
+    description: "Diplôme en Développement Digital Fullstack",
+    icon: <FaGraduationCap className="text-purple-500 text-3xl" />,
   },
   {
     year: "2021-2022",
-    title: "Baccalauréat Physique-Chimie",
-    description: "Mention A.Bien",
+    title: "Lycée Fatima El Fihria, Casablanca",
+    description: "Baccalauréat Sciences Physique-Chimie, Mention A.Bien",
     icon: <FaSchool className="text-purple-500 text-3xl" />,
   },
 ];
@@ -30,11 +31,11 @@ function About() {
       
 
       <motion.h2
-        className="text-4xl font-bold text-center mb-12 mt-5"
+        className="text-3xl font-bold text-center mb-12 mt-5"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0, transition: { duration: 1 } }}
       >
-        Parcours académique
+        Parcours Académique
       </motion.h2>
 
       {/* Timeline Section */}
@@ -69,8 +70,8 @@ function About() {
                     : "md:mr-8 text-center md:text-right"
                 }`}
               >
-                <h3 className="text-lg md:text-xl font-semibold">{item.year}</h3>
-                <h4 className="text-md md:text-lg mt-2">{item.title}</h4>
+                <h3 className="text-lg md:text-m font-semibold">{item.year}</h3>
+                <h4 className="text-md md:text-m mt-2">{item.title}</h4>
                 <p className="text-sm mt-1 text-gray-300">{item.description}</p>
               </div>
             </motion.div>
