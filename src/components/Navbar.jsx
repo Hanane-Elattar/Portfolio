@@ -30,7 +30,7 @@ function Navbar() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className={`shadow-md p-4 bg-transparent text-purple-500 fixed top-0 left-0 right-0 z-50 ${scrolled ? 'backdrop-blur-sm' : ''}`}
+        className={`shadow-md p-3 sm:p-4 bg-transparent text-purple-500 fixed top-0 left-0 right-0 z-50 ${scrolled ? 'backdrop-blur-md bg-gray-900/30' : ''}`}
       >
         <div className="container mx-auto flex justify-between items-center">
           {/* Image de profil à gauche */}
@@ -49,7 +49,7 @@ function Navbar() {
 
           {/* Menu hamburger pour mobile */}
           <button
-            className="md:hidden text-purple-500 focus:outline-none"
+            className="md:hidden text-purple-500 focus:outline-none p-2 hover:bg-purple-500/10 rounded-lg transition"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? (
@@ -60,16 +60,16 @@ function Navbar() {
           </button>
 
           {/* Liens de navigation pour desktop */}
-          <div className="hidden md:flex md:items-center  md:space-x-10 font-poppins">
+          <div className="hidden md:flex md:items-center md:space-x-6 lg:space-x-10 font-poppins">
             {["Accueil", "Projets", "Contactez-moi"].map((link, index) => (
               <a
                 key={index}
                 href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                className="relative block text-lg text-purple-400 transition group"
+                className="relative block text-base lg:text-lg text-purple-400 transition group hover:text-purple-300"
               >
                 {link}
                 {/* Effet visuel du lien */}
-                <span className="absolute left-0 bottom-0 h-[3px] w-0 bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
+                <span className="absolute left-0 bottom-0 h-[3px] w-0 bg-gradient-to-r from-purple-500 to-purple-300 transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
@@ -81,7 +81,7 @@ function Navbar() {
           animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -50 }}
           exit={{ opacity: 0, y: -50 }}
           transition={{ duration: 0.5 }}
-          className={`md:hidden fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-40 ${
+          className={`md:hidden fixed inset-0 bg-gradient-to-b from-gray-900/95 via-gray-900/90 to-black/80 backdrop-blur-lg flex justify-center items-center z-40 ${
             isOpen ? "block" : "hidden"
           }`}
         >
@@ -90,10 +90,10 @@ function Navbar() {
               <a
                 key={index}
                 href={`#${link.toLowerCase().replace(/\s+/g, "-")}`}
-                className="block text-2xl font-bold transition-all duration-300 hover:text-purple-400"
+                className="block text-xl sm:text-2xl font-bold transition-all duration-300 hover:text-purple-400 hover:scale-110 p-3 rounded-lg hover:bg-purple-500/10"
                 onClick={() => setIsOpen(false)} // Ferme le menu lors du clic sur un lien
               >
-                {link}
+                {link.charAt(0).toUpperCase() + link.slice(1)}
               </a>
             ))}
           </div>
